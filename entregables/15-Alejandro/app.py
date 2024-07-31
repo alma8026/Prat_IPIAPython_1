@@ -280,34 +280,34 @@ def show_user_info(user_index, user_ratings, recommended_items_collab, recommend
     header_frame = ttk.Frame(content_frame, padding="10", relief="flat", style="TFrame")
     header_frame.pack(fill="x", pady=(0, 20))
 
-    ttk.Label(header_frame, text=f"Películas calificadas por {user_name}", font=font_title, foreground="#2c3e50").pack(anchor='w')
+    ttk.Label(header_frame, text=f"Películas calificadas por {user_name}", font=font_title, foreground="#fff").pack(anchor='w')
 
     ratings_frame = ttk.Frame(content_frame, padding="10", relief="flat", borderwidth=2, style="TFrame")
     ratings_frame.pack(fill="x", pady=(0, 30), anchor="w")
 
-    ttk.Label(ratings_frame, text="Calificaciones:", font=font_subtitle, foreground="#34495e").pack(anchor='w')
+    ttk.Label(ratings_frame, text="Calificaciones:", font=font_subtitle, foreground="#fff").pack(anchor='w')
 
     if len(user_ratings) > 0:
         for movie, rating in user_ratings.items():
             if rating > 0:
                 stars = rating_to_stars(rating)
-                ttk.Label(ratings_frame, text=f"{movie}: {stars}", font=font_text, foreground="#2c3e50").pack(anchor='w', pady=2)
+                ttk.Label(ratings_frame, text=f"{movie}: {stars}", font=font_text, foreground="#fff").pack(anchor='w', pady=2)
     else:
-        ttk.Label(ratings_frame, text="No hay calificaciones disponibles.", font=font_text, foreground="#2c3e50").pack(anchor='w', pady=2)
+        ttk.Label(ratings_frame, text="No hay calificaciones disponibles.", font=font_text, foreground="#fff").pack(anchor='w', pady=2)
 
     recommendations_frame = ttk.Frame(content_frame, padding="10", relief="flat", borderwidth=2, style="TFrame")
     recommendations_frame.pack(fill="x", pady=(0, 30), anchor="w")
 
-    ttk.Label(recommendations_frame, text="Recomendaciones:", font=font_title, foreground="#34495e").pack(anchor='w')
+    ttk.Label(recommendations_frame, text="Recomendaciones:", font=font_title, foreground="#fff").pack(anchor='w')
 
-    ttk.Label(recommendations_frame, text="Filtrado Colaborativo:", font=font_subtitle, foreground="#34495e").pack(anchor='w', pady=(10, 5))
+    ttk.Label(recommendations_frame, text="Filtrado Colaborativo:", font=font_subtitle, foreground="#fff").pack(anchor='w', pady=(10, 5))
     if len(recommended_items_collab) > 0:
         for movie in recommended_items_collab:
-            ttk.Label(recommendations_frame, text=movie, font=font_text, foreground="#2c3e50").pack(anchor='w', pady=2)
+            ttk.Label(recommendations_frame, text=movie, font=font_text, foreground="#fff").pack(anchor='w', pady=2)
     else:
-        ttk.Label(recommendations_frame, text="No hay recomendaciones disponibles para el Filtrado Colaborativo.", font=font_text, foreground="#2c3e50").pack(anchor='w', pady=2)
+        ttk.Label(recommendations_frame, text="No hay recomendaciones disponibles para el Filtrado Colaborativo.", font=font_text, foreground="#fff").pack(anchor='w', pady=2)
 
-    ttk.Label(recommendations_frame, text="Filtrado Basado en Contenido:", font=font_subtitle, foreground="#34495e").pack(anchor='w', pady=(10, 5))
+    ttk.Label(recommendations_frame, text="Filtrado Basado en Contenido:", font=font_subtitle, foreground="#fff").pack(anchor='w', pady=(10, 5))
 
     # Mostrar las 5 principales categorías preferidas
     top_genres = get_top_genres(user_ratings, genre_matrix, top_n=5)
@@ -315,10 +315,10 @@ def show_user_info(user_index, user_ratings, recommended_items_collab, recommend
     recommendations_text = '\n'.join(recommended_items_content)
 
     full_text = reason_text + recommendations_text
-    text_label = ttk.Label(recommendations_frame, text=full_text, font=font_text, background="#f4f4f4", foreground="#2c3e50", wraplength=750, justify='left')
+    text_label = ttk.Label(recommendations_frame, text=full_text, font=font_text, background="#f4f4f4", foreground="#fff", wraplength=750, justify='left')
     text_label.pack(side='top', fill='both', expand=True)
 
-    close_button = tk.Button(popup, text="Cerrar", command=popup.destroy, font=font_button, bg="#e74c3c", fg="#ffffff", relief="flat", padx=10, pady=5)
+    close_button = tk.Button(popup, text="Cerrar", command=popup.destroy, font=font_button, bg="#e74c3c", fg="#000", relief="flat", padx=10, pady=5)
     close_button.pack(pady="20", side="bottom")
 
     def on_mouse_wheel(event):
